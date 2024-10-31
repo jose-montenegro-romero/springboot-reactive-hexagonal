@@ -15,7 +15,7 @@ public class PostFindUseCase {
 
     private final PostQueryRepository postQueryRepository;
 
-    public Flux<List<PostQuery>> findAllPosts(){
+    public Flux<PostQuery> findAllPosts(){
         return this.postQueryRepository.findAllPosts();
     }
     public Flux<PostQuery> findById(Integer id){

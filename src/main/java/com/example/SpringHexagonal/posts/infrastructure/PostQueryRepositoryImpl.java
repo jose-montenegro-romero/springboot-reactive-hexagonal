@@ -26,7 +26,7 @@ public class PostQueryRepositoryImpl implements PostQueryRepository {
     }
 
     @Override
-    public Flux<List<PostQuery>> findAllPosts() {
+    public Flux<PostQuery> findAllPosts() {
         return null;
     }
 
