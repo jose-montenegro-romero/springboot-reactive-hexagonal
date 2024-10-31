@@ -7,36 +7,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
 public class PostQueryRepositoryImpl implements PostQueryRepository {
-    private final JsonPlaceholderAPIClient jsonPlaceholderAPIClient;
-    @Override
-    public Flux<PostQuery> findById(int id) {
-        return jsonPlaceholderAPIClient.findPostById(id);
-    }
 
-    @Override
-    public Flux<PostQuery> searchBy(Map<String, String> params) {
-        return null;
-    }
+    private final JsonPlaceholderAPIClient jsonPlaceholderAPIClient;
 
     @Override
     public Flux<PostQuery> findAllPosts() {
         return jsonPlaceholderAPIClient.getAllPosts();
     }
 
-//    @Override
-//    public Flux<?> searchBy(Map<String, String> params) {
-//        return jsonPlaceholderAPIClient.searchByParam(params);
-//    }
-//
-//    @Override
-//    public Flux<?> findAllPosts() {
-//        return jsonPlaceholderAPIClient.getAllPosts();
-//    }
 }

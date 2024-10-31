@@ -6,9 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
-import java.util.List;
-import java.util.Map;
-
 @Service
 @RequiredArgsConstructor
 public class PostFindUseCase {
@@ -17,11 +14,5 @@ public class PostFindUseCase {
 
     public Flux<PostQuery> findAllPosts(){
         return this.postQueryRepository.findAllPosts();
-    }
-    public Flux<PostQuery> findById(Integer id){
-        return this.postQueryRepository.findById(id);
-    }
-    public Flux<PostQuery> findAllPostsByUserId(Integer userId){
-        return this.postQueryRepository.searchBy(Map.of("userId",String.valueOf(userId)));
     }
 }
