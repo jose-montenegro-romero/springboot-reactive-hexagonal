@@ -16,17 +16,27 @@ import java.util.Optional;
 public class PostQueryRepositoryImpl implements PostQueryRepository {
     private final JsonPlaceholderAPIClient jsonPlaceholderAPIClient;
     @Override
-    public Optional<PostQuery> findById(int id) {
-        return Optional.ofNullable(jsonPlaceholderAPIClient.findPostById(id));
+    public Flux<PostQuery> findById(int id) {
+        return jsonPlaceholderAPIClient.findPostById(id);
     }
 
     @Override
-    public Flux<?> searchBy(Map<String, String> params) {
-        return jsonPlaceholderAPIClient.searchByParam(params);
+    public Flux<List<PostQuery>> searchBy(Map<String, String> params) {
+        return null;
     }
 
     @Override
-    public Flux<?> findAllPosts() {
-        return jsonPlaceholderAPIClient.getAllPosts();
+    public Flux<List<PostQuery>> findAllPosts() {
+        return null;
     }
+
+//    @Override
+//    public Flux<?> searchBy(Map<String, String> params) {
+//        return jsonPlaceholderAPIClient.searchByParam(params);
+//    }
+//
+//    @Override
+//    public Flux<?> findAllPosts() {
+//        return jsonPlaceholderAPIClient.getAllPosts();
+//    }
 }

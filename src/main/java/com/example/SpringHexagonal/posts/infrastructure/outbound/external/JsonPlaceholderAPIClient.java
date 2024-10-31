@@ -22,7 +22,7 @@ public class JsonPlaceholderAPIClient {
                 .bodyToFlux(PostQuery.class);
     }
 
-    public Flux<?> create(PostCommand postCommand){
+    public Flux<PostQuery> create(PostCommand postCommand){
         return Flux.empty();
     }
 
@@ -30,7 +30,7 @@ public class JsonPlaceholderAPIClient {
         return Flux.empty();
     }
 
-    public Flux<?> findPostById(int id){
+    public Flux<PostQuery> findPostById(int id){
         return Flux.empty();
     }
  }

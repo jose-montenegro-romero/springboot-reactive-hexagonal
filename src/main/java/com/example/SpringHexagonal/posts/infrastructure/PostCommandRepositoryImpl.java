@@ -6,6 +6,7 @@ import com.example.SpringHexagonal.posts.domain.repository.PostCommandRepository
 import com.example.SpringHexagonal.posts.infrastructure.outbound.external.JsonPlaceholderAPIClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
 
 import java.util.Optional;
 
@@ -15,14 +16,13 @@ public class PostCommandRepositoryImpl implements PostCommandRepository {
     private final JsonPlaceholderAPIClient jsonPlaceholderAPIClient;
 
     @Override
-    public Optional<PostQuery> createPost(PostCommand postCommand) {
-        return Optional.ofNullable(jsonPlaceholderAPIClient.create(postCommand));
+    public Flux<PostQuery> createPost(PostCommand postCommand) {
+        return jsonPlaceholderAPIClient.create(postCommand);
     }
 
     @Override
-    public Optional<PostQuery> updatePost(PostCommand postCommand) {
-        //Código a implementar
-        return Optional.empty();
+    public Flux<PostQuery> updatePost(PostCommand postCommand) {
+        return Flux.empty();
     }
 
     @Override
