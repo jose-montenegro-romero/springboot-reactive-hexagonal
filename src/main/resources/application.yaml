@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: "SpringHexagonal"
+adapter:
+  restconsumer:
+    timeout: 5000
+    url: "https://jsonplaceholder.typicode.com/"
