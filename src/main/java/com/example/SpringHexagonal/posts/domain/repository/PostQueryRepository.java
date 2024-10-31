@@ -9,6 +9,6 @@ import java.util.Map;
 
 public interface PostQueryRepository {
     Flux<PostQuery> findById(int id);
-    Flux<List<PostQuery>> searchBy(Map<String, String> params);
+    Flux<PostQuery> searchBy(Map<String, String> params);
     Flux<PostQuery> findAllPosts();
 }

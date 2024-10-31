@@ -21,13 +21,13 @@ public class PostQueryRepositoryImpl implements PostQueryRepository {
     }
 
     @Override
-    public Flux<List<PostQuery>> searchBy(Map<String, String> params) {
+    public Flux<PostQuery> searchBy(Map<String, String> params) {
         return null;
     }
 
     @Override
     public Flux<PostQuery> findAllPosts() {
-        return null;
+        return jsonPlaceholderAPIClient.getAllPosts();
     }
 
 //    @Override

@@ -24,6 +24,14 @@ public class JsonPlaceholderAPIClient {
                 .bodyToFlux(PostQuery.class);
     }
 
+//    public Flux<PostQuery> getAllPosts() {
+//        return Flux.just(
+//                new PostQuery(1L, 101L, "Título 1", "Cuerpo del post 1"),
+//                new PostQuery(2L, 102L, "Título 2", "Cuerpo del post 2"),
+//                new PostQuery(3L, 103L, "Título 3", "Cuerpo del post 3")
+//        );
+//    }
+
     public Flux<PostQuery> create(PostCommand postCommand){
         return Flux.empty();
     }

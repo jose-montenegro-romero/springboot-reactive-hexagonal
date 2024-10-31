@@ -21,7 +21,7 @@ public class PostFindUseCase {
     public Flux<PostQuery> findById(Integer id){
         return this.postQueryRepository.findById(id);
     }
-    public Flux<List<PostQuery>> findAllPostsByUserId(Integer userId){
+    public Flux<PostQuery> findAllPostsByUserId(Integer userId){
         return this.postQueryRepository.searchBy(Map.of("userId",String.valueOf(userId)));
     }
 }
