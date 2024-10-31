@@ -2,22 +2,35 @@ package com.example.SpringHexagonal.posts.infrastructure.outbound.external;
 
 import com.example.SpringHexagonal.posts.domain.model.PostCommand;
 import com.example.SpringHexagonal.posts.domain.model.PostQuery;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 
-import java.util.List;
 import java.util.Map;
 
-@FeignClient(name = "${json-placeholder.client.name}", url = "${json-placeholder.url}")
-public interface JsonPlaceholderAPIClient {
-    @PostMapping
-    PostQuery create(@RequestBody PostCommand request);
+@RequiredArgsConstructor
+public class JsonPlaceholderAPIClient {
 
-    @GetMapping("/{id}")
-    PostQuery findPostById(@PathVariable Integer id);
+    private final WebClient client;
 
-    @GetMapping
-    List<PostQuery> getAllPosts();
+    public Flux<PostQuery> getAllPosts() {
+        return client
+                .get()
+                .uri("posts")
+                .retrieve()
+                .bodyToFlux(PostQuery.class);
+    }
 
-    @GetMapping
-    List<PostQuery> searchByParam(@RequestParam Map<String, String> params);
-}
+    public Flux<?> create(PostCommand postCommand){
+        return Flux.empty();
+    }
+
+    public Flux<?> searchByParam(Map<String, String> params){
+        return Flux.empty();
+    }
+
+    public Flux<?> findPostById(int id){
+        return Flux.empty();
+    }
+ }

@@ -5,6 +5,7 @@ import com.example.SpringHexagonal.posts.domain.repository.PostQueryRepository;
 import com.example.SpringHexagonal.posts.infrastructure.outbound.external.JsonPlaceholderAPIClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 import java.util.Map;
@@ -20,12 +21,12 @@ public class PostQueryRepositoryImpl implements PostQueryRepository {
     }
 
     @Override
-    public List<PostQuery> searchBy(Map<String, String> params) {
+    public Flux<?> searchBy(Map<String, String> params) {
         return jsonPlaceholderAPIClient.searchByParam(params);
     }
 
     @Override
-    public List<PostQuery> findAllPosts() {
+    public Flux<?> findAllPosts() {
         return jsonPlaceholderAPIClient.getAllPosts();
     }
 }
