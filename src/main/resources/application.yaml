@@ -1,5 +1,5 @@
 server:
-  port: 3333
+  port: 3334
 
 spring:
   application:
@@ -10,4 +10,6 @@ adapter:
     timeout: 5000
     url: "https://jsonplaceholder.typicode.com/"
 
-SPRING_DATA_MONGODB_URI: "mongodb://root:rootpassword@mongodb:27017/testdb"
+mongodb:
+  url: "mongodb://root:rootpassword@localhost:27017"
+  db: "users"
