@@ -46,11 +46,16 @@ public class MongoConfiguration extends AbstractReactiveMongoConfiguration {
     @ConditionalOnProperty(prefix = "job.autorun", name = "enabled", havingValue = "true", matchIfMissing = true)
     public CommandLineRunner loadData(UserRepository repository) {
         return (args) -> {
+            UserEntity tempUser = new UserEntity();
+            tempUser.setName("test");
+            tempUser.setScore(200);
+
             // save a couple of users
             var users = Flux.just(
-                    new UserEntity("1", "hola", 200),
-                    new UserEntity("2", "hola", 200),
-                    new UserEntity("3", "hola", 200)
+                        tempUser
+//                    new UserEntity("1", "hola", 200),
+//                    new UserEntity("2", "hola", 200),
+//                    new UserEntity("3", "hola", 200)
             );
             repository.saveAll(users).subscribe();
         };
