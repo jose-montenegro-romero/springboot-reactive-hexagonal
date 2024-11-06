@@ -51,12 +51,7 @@ public class MongoConfiguration extends AbstractReactiveMongoConfiguration {
             tempUser.setScore(200);
 
             // save a couple of users
-            var users = Flux.just(
-                        tempUser
-//                    new UserEntity("1", "hola", 200),
-//                    new UserEntity("2", "hola", 200),
-//                    new UserEntity("3", "hola", 200)
-            );
+            var users = Flux.just(tempUser);
             repository.saveAll(users).subscribe();
         };
     }
