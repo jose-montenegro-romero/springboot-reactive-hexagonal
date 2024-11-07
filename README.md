@@ -9,3 +9,13 @@ https://gokhana.dev/spring-reactive-mongodb-implementation/
 # Docker commands
 
 docker compose up -d
+
+# Command build with maven
+mvn clean package -DskipTests
+
+mvn clean package
+
+# Docker commands
+docker build -t hexagonal-tutorial:latest .
+
+docker run -p 8080:8080 hexagonal-tutorial:latest
